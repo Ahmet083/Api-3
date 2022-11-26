@@ -10,8 +10,7 @@ const Login = () => {
     const api = useApi()
 
     const onLoginBtnClick = () => {
-       //alert ("Onclick")
-    
+   
     const postData = {
         email, password,
     }

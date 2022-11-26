@@ -5,10 +5,15 @@ import { BrowserRouter, Routes, Route, Link, HashRouter } from 'react-router-dom
 import Register from "./pages/register";
 import Login from "./pages/login";
 import Home from "./pages/home";
+import axios from "axios";
 
 
-function App() {
-  
+function App(props) {
+  console.log('>> APP PROPS', props)
+  const token = localStorage.getItem('token')
+  if (token) {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`  
+  }
   return (
     <div className="container py-3">
 

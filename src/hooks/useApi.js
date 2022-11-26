@@ -23,7 +23,7 @@
 import axios from 'axios'
 
 const useApi = () => {
-  const baseApiUrl = ('https://api.adoptez1artisan.com/')
+  const baseApiUrl = 'https://api.adoptez1artisan.com/'
 
   axios.defaults.baseURL = baseApiUrl
 
@@ -31,7 +31,7 @@ const useApi = () => {
   if (token) {
     console.log('>> TOKEN MEVCUT ', token)
 
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    axios.defaults.headers.common['Authorization'] = `Bearer  ${token}`
   }
 
   return axios

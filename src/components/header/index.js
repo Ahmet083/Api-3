@@ -1,7 +1,7 @@
 import useApi from "../../hooks/useApi"
 import React, { useEffect, useState } from "react"
 
-const Header = () => {
+const Header = (props) => {
   const api = useApi()
   const [ user, setUser] = useState (null)
 
@@ -14,7 +14,7 @@ const Header = () => {
       setUser(response.data.data.user)
     })
     .catch((err) => {
-      console.log("ERR", err)
+      console.log("CATCH_ERR", err)
     })
      }, [])
 
