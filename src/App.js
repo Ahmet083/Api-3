@@ -6,9 +6,25 @@ import Register from "./pages/register";
 import Login from "./pages/login";
 import Home from "./pages/home";
 import axios from "axios";
+import useApi from "./hooks/useApi";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCategory } from "./redux/categorySlice";
 
 
 function App(props) {
+  const api = useApi()
+  const dispatch = useDispatch
+  useEffect(() => {
+    api.get('public/categories/listMainCategories')
+    .then(response => {
+      dispatch(setCategory(response.data.data))
+
+    })
+    .catch(err => {
+      console.log('err', err)
+    })
+  })
   console.log('>> APP PROPS', props)
   const token = localStorage.getItem('token')
   if (token) {
@@ -23,6 +39,7 @@ function App(props) {
       <Route index element={<Home />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={<Register/>} />
+      <Route path="/category/:slug" element={<Login >} />
     </Routes>
   </HashRouter>
    

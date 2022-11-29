@@ -1,14 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import useApi from "../../hooks/useApi";
+import { useDispatch } from "react-redux";
 
 
 const Login = () => {
+    const api = useApi
+
+    const dispatch = useDispatch()
+    
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const api = useApi()
-
+   
     const onLoginBtnClick = () => {
    
     const postData = {
