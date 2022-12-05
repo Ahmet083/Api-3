@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const initialState = null
+const initialState =  null
+ 
 
 
 const categorySlice = createSlice({
@@ -11,7 +12,7 @@ const categorySlice = createSlice({
         setCategory: (state, action) => {
             console.log("SET CATEGORY ACTION",  action.payload )
            
-            state.categories = action.payload
+            state = action.payload
 
             return action.payload
         }

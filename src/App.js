@@ -15,16 +15,17 @@ import { setCategory } from "./redux/categorySlice";
 function App(props) {
   const api = useApi()
   const dispatch = useDispatch
+
+   // burada kategorileri apiden al.
   useEffect(() => {
     api.get('public/categories/listMainCategories')
     .then(response => {
       dispatch(setCategory(response.data.data))
-
     })
     .catch(err => {
       console.log('err', err)
     })
-  })
+  },[])
   console.log('>> APP PROPS', props)
   const token = localStorage.getItem('token')
   if (token) {
@@ -37,9 +38,10 @@ function App(props) {
     <HashRouter>
     <Routes>
       <Route index element={<Home />} />
-      <Route path="/Login" element={<Login />} />
-      <Route path="/Register" element={<Register/>} />
-      <Route path="/category/:slug" element={<Login >} />
+      <Route path="login" element={<Login />} />
+
+      <Route path="category/:slug" element={<Login />} />
+
     </Routes>
   </HashRouter>
    

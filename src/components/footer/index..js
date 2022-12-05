@@ -1,29 +1,33 @@
 import { useSelector } from "react-redux"
 import BootstrapLogo from "./bootstrap-logo.svg"
 
-const Footer = () => {
+function Footer() {
+   
   const categories = useSelector(state => state.category)
   console.log('FOOTER CATEGORY', categories)
 
   let categoriesJsx = []
 
   if (categories) {
-    categories.map((item.index) => {
+    categories.map((item, index) => {
+      if (index >= 5) {
+        return
+      }
       categoriesJsx.push(
-        <li className="mb-1">
-        <a className="link-secondary text-decoration-none" href={'#/category' + item.slug}>
+        <li className="mb-1" key={index}>
+        <a className="link-secondary text-decoration-none" href={`#/category/${item.slug}`}>
         {item.name}
         </a>
-        </li>
+        </li>,
       )
     })
 
   } else {
     categoriesJsx = (
       <li className="mb-1" key='1'>
-        <div>
+        <strong>
           Loading...
-        </div>
+        </strong>
       </li>
     )
   }
