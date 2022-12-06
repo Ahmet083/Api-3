@@ -15,7 +15,8 @@ function Footer() {
       }
       categoriesJsx.push(
         <li className="mb-1" key={index}>
-        <a className="link-secondary text-decoration-none" href={`#/category/${item.slug}`}>
+        <a className="link-secondary text-decoration-none"
+         href={`#/category/${item.slug}`}>
         {item.name}
         </a>
         </li>,
@@ -56,10 +57,7 @@ function Footer() {
             <h5>Kategoriler</h5>
             <ul className="list-unstyled text-small">
               {categoriesJsx}
-              <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Resource</a></li>
-              <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Resource name</a></li>
-              <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Another resource</a></li>
-              <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Final resource</a></li>
+              
             </ul>
           </div>
           <div className="col-3 col-md">

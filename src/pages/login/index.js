@@ -56,8 +56,8 @@ const Login = () => {
                         <div className="col-sm-12">
 
                             <div className="d-grid gap-2">
-                                <button className="btn btn-primary" type="submit">
-                                    Giriş Yap
+                                <button className="btn btn-dark text-warning"  type="submit">
+                                   Login
                                 </button>
                             </div>
 
